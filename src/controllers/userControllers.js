@@ -8,5 +8,12 @@ async function getUsers(request, response){
         console.error("Erro na busca dos usuarios:" + error);
     }
 }
+async function postUser(request, response){
+    try{
+        console.log("true");
+    }catch(error){
+        console.log("true");
+    }
+}
 
 export default getUsers;

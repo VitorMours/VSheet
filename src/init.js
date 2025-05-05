@@ -4,20 +4,30 @@ import morgan from "morgan";
 import cors from "cors";
 // Importing routes
 import userRouter from "./routes/userRoutes.js";
+import connectDatabase from "./config/databaseConfig.js";
 
-const app = express(); 
-const PORT = process.env.PORT || 3000;
 
-// Adding standard middlewares 
-app.use(express.json());
-app.use(helmet());
-app.use(cors());
-app.use(morgan('tiny'));
+async function startServer(){
+    const app = express(); 
+    const PORT = process.env.PORT || 3000;
 
-// Adding routes middlewares
-app.use("/users", userRouter);
+    // Connecting to the database
+    await connectDatabase();
 
-app.listen(PORT, (request, response) => {
-    console.info(`Running the server in the port ${PORT}`);
-    console.log("\n ====================== Logging the request ======================");
-});
+    // Adding standard middlewares 
+    app.use(express.json());
+    app.use(helmet());
+    app.use(cors());
+    app.use(morgan('tiny'));
+
+    // Adding routes middlewares
+    app.use("/users", userRouter);
+
+    app.listen(PORT, (request, response) => {
+        console.info(`Running the server in the port ${PORT}`);
+        console.log("\n ====================== Logging the request ======================");
+    });
+}
+
+
+startServer();

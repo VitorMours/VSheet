@@ -8,9 +8,13 @@ const userSchema = mongoose.Schema({
     },
     name: {
         type: String,
-        required: true,
+        required: [true, "We need to know how to call you!"],
         min: [4, "too short name"],
         max: 50
+    },
+    surname: {
+        type: String,
+        required: true,
     },
     email: {
         type: String,
