@@ -1,6 +1,5 @@
 import express from "express";
-import { Strategy as JwtStrategy, ExtractJwt } from "passport-jwt";
-import passport from "passport";
+import authConfig from "../config/authConfig.js";
 const auth = express.Router();
 
 auth.use(express.json());
