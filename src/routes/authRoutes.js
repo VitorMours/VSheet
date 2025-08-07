@@ -6,7 +6,7 @@ auth.use(express.json());
 
 auth.get("/login", (request, response) => {
   try {
-    response.status(200).send({
+    return response.status(200).send({
       credential: "email@example.com",
       password: "type-your-password",
     });
@@ -22,7 +22,7 @@ auth.post("/login", (request, response) => {
 
     console.log(credential, password);
 
-    response.status(200).send();
+    return response.status(200).send();
   } catch (e) {
     throw e;
   }
@@ -30,7 +30,11 @@ auth.post("/login", (request, response) => {
 
 auth.get("/signin", (request, response) => {
   try {
-    response.status(200).send();
+    return response.status(200).send({
+      name: "Type your name",
+      email: "email@example.com",
+      password: "type-your-password",
+    });
   } catch (e) {
     throw e;
   }
