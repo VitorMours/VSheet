@@ -3,7 +3,7 @@ import multer from "multer";
 import helmet from "helmet";
 import router from "./routes/initRoutes.js";
 import bodyParser from "body-parser";
-import connectToDatabase from "./config/databaseConfig.js";
+import connectToDatabase from "./models/models.js";
 import hateoasLinker from "express-hateoas-links";
 function launch_app() {
   const PORT = process.env.PORT || 3000;

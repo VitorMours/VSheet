@@ -1,5 +1,5 @@
 import { Strategy as JwtStrategy, ExtractJwt } from "passport-jwt";
-import User from "../models/User.js"; // Ajuste o caminho conforme seu projeto
+import User from "../models/models.js"; // Ajuste o caminho conforme seu projeto
 import passport from "passport";
 
 const opts = {

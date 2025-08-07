@@ -1,3 +1,4 @@
+import { DataTypes } from "sequelize";
 /** Modelo do Objeto Relacional User
  *
  *  @constructor
@@ -9,9 +10,10 @@
  *  @param {string} name - Name of the user
  */
 
-import { sequelize, DataTypes } from "sequelize";
 
-const User = sequelize.define("User", {
+
+
+const userSchema = {
   name: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -19,6 +21,7 @@ const User = sequelize.define("User", {
       notEmpty: true,
     },
   },
+  
   email: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -27,4 +30,17 @@ const User = sequelize.define("User", {
       notEmpty: true,
     },
   },
-});
+
+  password: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
+  },
+  modelName: "User"
+
+};
+
+
+export default userSchema;
