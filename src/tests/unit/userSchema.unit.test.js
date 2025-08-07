@@ -23,7 +23,7 @@ describe("User Schema Tests", () => {
             email: "john.doe@example.com",
             password: "strongPassword3232!"
         });
-
+        
         expect(user).toBeDefined();
         expect(user.name).toBe("John");
         expect(user.surname).toBe("Doe");

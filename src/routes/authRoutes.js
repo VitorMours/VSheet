@@ -1,67 +1,25 @@
 import express from "express";
-import jwt from "jsonwebtoken";
+import AuthController from "../controllers/authController.js";
+import UserRepository from "../repositories/userRepository.js";
+import UserService from "../services/userService.js";
+import AuthService from "../services/authService.js";
 
-import authConfig from "../config/authConfig.js";
 const auth = express.Router();
+
+// Criando as injeções de dependência
+const userRepository = new UserRepository();
+const userService = new UserService(userRepository);
+const authService = new AuthService(userRepository);
+
+const authController = new AuthController(authService, userService);
+
+
 
 auth.use(express.json());
 
-auth.get("/login", (request, response) => {
-  try {
-    return response.status(200).send({
-      credential: "email@example.com",
-      password: "type-your-password",
-
-    });
-  } catch (e) {
-    throw e;
-  }
-});
-
-auth.post("/login", (request, response) => {
-  try {
-    const credential = request.body.credential;
-    const password = request.body.password;
-
-    // TODO: Authenticate the user in the datbase
-
-    // TODO: Generate a JWT token
-    // TODO: Return the token in the response and login
-
-
-    return response.status(200).send();
-  } catch (e) {
-    throw e;
-  }
-});
-
-auth.get("/signin", (request, response) => {
-  try {
-    return response.status(200).send({
-      name: "Type your name",
-      surname: "Type your surname",
-      email: "email@example.com",
-      password: "type-your-password",
-    });
-  } catch (e) {
-    throw e;
-  }
-});
-
-/**
- * Rota de login com envio dos dados para autenticação.
- * @param {string} credential - Credential of the user
- * @param {string} password - Password of the user
- */
-auth.post("/signin", (request, response) => {
-  try {
-    const credential = request.body.credential;
-    const password = request.body.password;
-
-    response.status(200).send();
-  } catch (e) {
-    throw e;
-  }
-});
+auth.get("/login", authController.getLogin);
+auth.post("/login", authController.postLogin);
+auth.get("/signin", authController.getSignin);
+auth.post("/signin", authController.postSignin);
 
 export default auth;
