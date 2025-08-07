@@ -1,4 +1,6 @@
 import express from "express";
+import jwt from "jsonwebtoken";
+
 import authConfig from "../config/authConfig.js";
 const auth = express.Router();
 
@@ -21,7 +23,11 @@ auth.post("/login", (request, response) => {
     const credential = request.body.credential;
     const password = request.body.password;
 
-    console.log(credential, password);
+    // TODO: Authenticate the user in the datbase
+
+    // TODO: Generate a JWT token
+    // TODO: Return the token in the response and login
+
 
     return response.status(200).send();
   } catch (e) {

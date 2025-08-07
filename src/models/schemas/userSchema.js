@@ -51,11 +51,12 @@ const userSchema = {
     allowNull: false,
     validate: {
       notEmpty: true,
-      isString: true,
       isStrongPassword(value) {
         const regexPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,32}$/;
         if (!regexPattern.test(value)) {
-          throw new Error("Password must be between 6 and 32 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character.");
+          throw new Error( `Password must be between 6 and 32 characters long, 
+                            contain at least one uppercase letter, one lowercase letter, one number, 
+                            and one special character.`);
         }
       }
     },
