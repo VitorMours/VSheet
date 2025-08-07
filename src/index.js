@@ -5,10 +5,9 @@ import router from "./routes/initRoutes.js";
 import bodyParser from "body-parser";
 import connectToDatabase from "./models/models.js";
 import hateoasLinker from "express-hateoas-links";
-function launch_app() {
-  const PORT = process.env.PORT || 3000;
-  const app = express();
 
+function createApp() {
+  const app = express();
   const upload = multer({ dest: "./public/uploads/" });
 
   // Adding the middlewares
@@ -22,9 +21,18 @@ function launch_app() {
   app.disable("x-powered-by");
 
   connectToDatabase();
+  app.use("/public/uploads", express.static("public/uploads"));
+  return app;
+}
+
+function launchApp() {
+  const app = createApp();
+  const PORT = process.env.PORT || 3000;
+
   app.listen(PORT, () => {
     console.log("App rodando dentro da porta 3000...");
   });
 }
 
-launch_app();
+export { createApp };
+launchApp();

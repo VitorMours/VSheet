@@ -9,6 +9,7 @@ auth.get("/login", (request, response) => {
     return response.status(200).send({
       credential: "email@example.com",
       password: "type-your-password",
+
     });
   } catch (e) {
     throw e;
@@ -32,6 +33,7 @@ auth.get("/signin", (request, response) => {
   try {
     return response.status(200).send({
       name: "Type your name",
+      surname: "Type your surname",
       email: "email@example.com",
       password: "type-your-password",
     });

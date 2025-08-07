@@ -1,3 +1,4 @@
+import { notDeepEqual } from "assert";
 import { DataTypes } from "sequelize";
 /** Modelo do Objeto Relacional User
  *
@@ -19,7 +20,20 @@ const userSchema = {
     allowNull: false,
     validate: {
       notEmpty: true,
+      isAlpha: true
     },
+  },
+  surname: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true, 
+      isAlpha: true, 
+    },
+    length: {
+      min: 2, 
+      max: 50 
+    }
   },
   
   email: {
@@ -28,6 +42,7 @@ const userSchema = {
     unique: true,
     validate: {
       notEmpty: true,
+      isEmail: true
     },
   },
 
@@ -35,7 +50,19 @@ const userSchema = {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
-      notEmpty: true
+      notEmpty: true,
+      isString: true,
+      isStrongPassword(value) {
+        const regexPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,32}$/;
+        if (!regexPattern.test(value)) {
+          throw new Error("Password must be between 6 and 32 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character.");
+        }
+      }
+    },
+    
+    length: {
+      min: 6,
+      max: 32
     }
   },
   modelName: "User"
