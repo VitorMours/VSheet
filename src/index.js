@@ -3,7 +3,7 @@ import multer from "multer";
 import helmet from "helmet";
 import router from "./routes/initRoutes.js";
 import bodyParser from "body-parser";
-import connectToDatabase from "./models/models.js";
+import { connectToDatabase, syncSchemas } from "./models/models.js";
 import hateoasLinker from "express-hateoas-links";
 
 function createApp() {
@@ -20,7 +20,10 @@ function createApp() {
   app.use(helmet());
   app.disable("x-powered-by");
 
+  // Database considerations
   connectToDatabase();
+  syncSchemas();
+
   app.use("/public/uploads", express.static("public/uploads"));
   return app;
 }

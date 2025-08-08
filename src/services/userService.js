@@ -1,3 +1,4 @@
+import UserRepository from "../repositories/userRepository.js";
 
 class UserService {
 
@@ -5,35 +6,40 @@ class UserService {
         this.userRepository = userRepository;
     }
 
-    static save(user){
+    static async save(user){
+        console.log(user);
+        console.log(user);
+        console.log(user);
+        console.log(user);
         try {
-            const savedUser = this.userRepository.create(user);
+            const savedUser = await UserRepository.create(user);
             return savedUser;
         } catch (error) {
             throw error;
         }
     }
 
-    static getById(id) {
+    static async getById(id) {
         try{
-            const user = this.userRepository.findByPk(id);
+            const user = await UserRepository.findByPk(id);
             return user;
         }catch(error){
             throw error;
         }
     }
-    static getAll() {
+    
+    static async getAll() {
         try{
-            const users = this.userRepository.findAll();
+            const users = await UserRepository.findAll();
             return users;
         }catch(error){
             throw error;
         }
     }
 
-    static getByEmail(email) {
+    static async getByEmail(email) {
         try{
-            const user = this.userRepository.findOne({ where: { email: email } });
+            const user = await UserRepository.findByEmail(email);
             return user;
         }catch(error){
             throw error;

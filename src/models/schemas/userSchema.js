@@ -66,7 +66,8 @@ const userSchema = {
       max: 32
     }
   },
-  modelName: "User"
+  modelName: "User",
+  tableName: "Users"
 
 };
 

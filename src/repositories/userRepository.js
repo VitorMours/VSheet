@@ -1,19 +1,27 @@
-import User from "../models/models.js"
+import { User } from "../models/models.js"
 
 class UserRepository {
 
-    static save(){}
+    static async create(userData){
+        const user = await User.create(userData);
+        return user;
+    }
 
-    static update(){}
+    update(){}
 
-    static getById(id){
+    findById(id){
         const user = User.findById();
 
     }
 
-    static getAll(){}
+    getAll(){}
+    
+    static async findByEmail(email){
+        const user = await User.findOne({ where: { email } });
+        return user;
+    }
 
-    static delete(){}
+    delete(){}
 
 
 

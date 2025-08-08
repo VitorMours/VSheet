@@ -18,11 +18,11 @@ class AuthService {
         }
     }
 
-    static authenticateToken(){}
+    authenticateToken(){}
 
     
 
-    static generateToken(user){
+    generateToken(user){
         const payload = {
             id: user.id,
             email: user.email,
