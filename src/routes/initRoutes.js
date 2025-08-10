@@ -1,24 +1,28 @@
 import express from "express";
-import userRouter from "./userRoutes.js";
-import userService from "../services/userService.js";
+import auth from "./authRoutes.js";
+const router = express.Router();
 
+router.use(express.json());
+router.use("/auth", auth);
 
-const userServiceImpl = new userService();
-
-// Adding the routes to the root
-const initRouter = express.Router();
-initRouter.use("/users", userRouter);
-
-// Creating routes for global information
-initRouter.get("/global_metrics", (request, response) => {
-	try{
-		return response.status(200).send({"Tentando receber mensagem":true});
-	}catch(error){
-		return response.status(500).send({"error": error.message});
-	}
+router.get("/", (request, response) => {
+  try {
+    return response.status(200).json([
+      {
+        rel: "self",
+        method: "GET",
+        href: "http://127.0.0.1",
+      },
+      {
+        rel: "create",
+        method: "POST",
+        title: "Create Person",
+        href: "http://127.0.0.1/person",
+      },
+    ]);
+  } catch (error) {
+    console.error(error);
+  }
 });
 
-
-
-
-export default initRouter
+export default router;
