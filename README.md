@@ -4,7 +4,7 @@ Adicionar imagem de banner
 
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=git,jest,mysql,sqlite,sequelize,express,react,materialui" />
+    <img src="https://skillicons.dev/icons?i=git,vitest,mysql,sqlite,sequelize,express,react,materialui" />
   </a>
 </p>
 
@@ -15,5 +15,15 @@ de gerenciar diversas partituras e isso é dificultoso principalmente pela grand
 Com isso, vi a possibilidade de criar um sistema web, que possui a capacidade de armazenar diversas partituras de forma organizada, eficiente, e com grande possibilidade 
 de modificações presentes dentro da interface, facilitando o estudo dessas obras por meio de ferramenta.
 
-
 # Tecnologias e Desenvolvimento
+
+Dentro das tecnologias utilizadas, temos que foi usado o ***nodejs*** como runtime do back-end devido à sua facilidade 
+de ser integrado com o front-end, por utilizar a mesma linguagem, que é javascript. Como ferramentas, decidi descolher 
+algumas que são conhecidas dentro do mercado, e que são usadas em diversos projetos, como por exemplo:
+
+- ***Sequelize:*** ORM para bancos de dados relacionais
+- ***Git:*** Versionamento de Código
+- ***Vitest:*** Framework de teste, usado desde testes unitários até testes de integração dentro de sistemas
+- ***Express:*** Framework javascript muito conhecido dentro do backend
+- ***React:*** Lib de desenvolvimento front-end criada pela facebook (atual Meta) 
+- ***MaterialUI:*** Biblioteca de componentes que seguem o padrão de estilo e desenvolvimento do Material Design da Google
