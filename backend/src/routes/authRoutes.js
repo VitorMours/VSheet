@@ -1,31 +1,14 @@
 import express from "express";
+import passport from "passport";
 
-const router = express.Router();
+import { getLogin, postLogin, getSignin, postSignin } from "../controllers/authController.js";
 
+const auth = express.Router();
+auth.use(express.json());
 
-router.get("/login",  getLogin(request, response));
-router.post("/login", (request, response) => {
-
-	try{
-		return response.status(200).send();
-	}catch(error){
-
-	}
-});
-
-router.get("/signin", (request, response) => {
-	try{
-		return response.status(200).send();
-	}catch(error){
-
-	}
-});
-
-
-router.post("/signin", (request, response) => {
-	try{
-		return response.status(200).send();
-	}catch(error){
-
-	}
-});
+auth.get("/login", (request, response) => getLogin(request, response));
+auth.post("/login", (request, response) => postLogin(request, response));
+auth.get("/signin", (request, response) => getSignin(request, response));
+auth.post("/signin", (request, response) => postSignin(request, response));
+auth.get("/protected", passport.authenticate('jwt', { session: false }), (request, response) => { return response.status(200).send({ message: "This is a protected route" }) });
+export default auth;
