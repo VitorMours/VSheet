@@ -4,7 +4,7 @@ Adicionar imagem de banner
 
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=git,vitest,mysql,sqlite,sequelize,express,react,materialui" />
+    <img src="https://skillicons.dev/icons?i=docker,git,vitest,mysql,sqlite,sequelize,express,react,daisyui" />
   </a>
 </p>
 
