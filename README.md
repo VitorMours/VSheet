@@ -4,7 +4,7 @@ Adicionar imagem de banner
 
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=git,vitest,mysql,sqlite,sequelize,express,react,materialui" />
+    <img src="https://skillicons.dev/icons?i=docker,git,vitest,mysql,sqlite,sequelize,express,react,daisyui" />
   </a>
 </p>
 
@@ -27,3 +27,15 @@ algumas que são conhecidas dentro do mercado, e que são usadas em diversos pro
 - ***Express:*** Framework javascript muito conhecido dentro do backend
 - ***React:*** Lib de desenvolvimento front-end criada pela facebook (atual Meta) 
 - ***MaterialUI:*** Biblioteca de componentes que seguem o padrão de estilo e desenvolvimento do Material Design da Google
+- **Docker:**: Empacotamento da aplicação em um ambiente estável e persistente em relação às configurações e comportamento 
+
+Em relação às tecnologias, é visto como o uso do docker foi único e exclusivamente focado no fato de que será necessário o uso do mesmo para 
+virtualizar as dependências e demandas técnicas de dentro do sistema, tendo em vista que o uso de dois bancos de dados diferentes, sendo eles
+o SQLite e o MySQL, são usados pelo fator de que o primeiro não é necessitade de um servidor e de configurações persistentes ativas para que 
+o mesmo possa ser utilizado dentro de ambiente de desenvolvimento. Com isso, mantém-se o uso do MySQL apenas em ambiente de produção, sendo 
+possível a sua configuração por meio de variáveis de ambiente.
+
+
+
+
+
