@@ -1,13 +1,13 @@
 # VSheets
 
 Adicionar imagem de banner
-
 <p align="center">
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=docker,git,mysql,sqlite,sequelize,vitest,express,javascript,react,daisyui" />
+  <a href="https://go-skill-icons.vercel.app/">
+    <img
+      src="https://go-skill-icons.vercel.app/api/icons?i=dbeaver,docker,git,mysql,sequelize,vitest,express,javascript,react,daisyui&theme=dark"
+    />
   </a>
 </p>
-
 # Motivação
 Por muito tempo, fui apaixonado por música, e como todo músico que busca se aperfeiçoar, e estudar obras mais clássicas e estabelecidas, vê a necessidade 
 de gerenciar diversas partituras e isso é dificultoso principalmente pela grande quantidade de compositores, obras, quantidade de folhas por peça, e entre outros fatores.
