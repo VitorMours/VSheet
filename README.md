@@ -4,10 +4,11 @@ Adicionar imagem de banner
 <p align="center">
   <a href="https://go-skill-icons.vercel.app/">
     <img
-      src="https://go-skill-icons.vercel.app/api/icons?i=dbeaver,docker,git,mysql,sequelize,vitest,express,javascript,react,daisyui&theme=dark"
+      src="https://go-skill-icons.vercel.app/api/icons?i=dbeaver,docker,git,mysql,sequelize,vitest,express,javascript,react,daisyui,tailwindcss&theme=dark"
     />
   </a>
 </p>
+
 # Motivação
 Por muito tempo, fui apaixonado por música, e como todo músico que busca se aperfeiçoar, e estudar obras mais clássicas e estabelecidas, vê a necessidade 
 de gerenciar diversas partituras e isso é dificultoso principalmente pela grande quantidade de compositores, obras, quantidade de folhas por peça, e entre outros fatores.
@@ -26,8 +27,9 @@ algumas que são conhecidas dentro do mercado, e que são usadas em diversos pro
 - ***Vitest:*** Framework de teste, usado desde testes unitários até testes de integração dentro de sistemas
 - ***Express:*** Framework javascript muito conhecido dentro do backend
 - ***React:*** Lib de desenvolvimento front-end criada pela facebook (atual Meta) 
-- ***MaterialUI:*** Biblioteca de componentes que seguem o padrão de estilo e desenvolvimento do Material Design da Google
-- **Docker:**: Empacotamento da aplicação em um ambiente estável e persistente em relação às configurações e comportamento 
+- ***DaisyUI:*** Biblioteca de componentes que seguem o padrão de estilo usando o TailwindCSS por baixo
+- ***TailwindCSS:*** Framework de Estilização que usa classes definidas com estilos pré-definidos
+- ***Docker:*** Uso de containers na aplicação criando um ambiente estável e persistente em relação às configurações e comportamento 
 
 Em relação às tecnologias, é visto como o uso do docker foi único e exclusivamente focado no fato de que será necessário o uso do mesmo para 
 virtualizar as dependências e demandas técnicas de dentro do sistema, tendo em vista que o uso de dois bancos de dados diferentes, sendo eles
