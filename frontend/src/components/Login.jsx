@@ -1,14 +1,13 @@
-import React from 'react';
+import { React, Fragment } from 'react';
 
 export default function Login() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-base-300">
+    <Fragment>
       <div className="text-center mb-5">
         <h1 className="text-3xl font-bold">Be welcome back!</h1>
       </div>
       <div className="card w-full max-w-sm shadow-xl bg-base-100">
         <div className="card-body">
-          {/* <h2 className="card-title mx-auto">Login</h2> */}
           <div className="form-control">
             <label className="label">
               <span className="label-text py-1">Email</span>
@@ -36,6 +35,6 @@ export default function Login() {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </Fragment>
+    );
 }

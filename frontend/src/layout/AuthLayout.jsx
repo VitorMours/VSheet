@@ -1,11 +1,13 @@
 import Header from "../components/Header.jsx";
 import CompactFooter from "../components/CompactFooter.jsx";
-import Login from "../components/Login.jsx"
-export default function AuthLayout() {
+
+export default function AuthLayout({ component }) {
     return (
         <div className="min-h-screen">
             <Header />
-            <Login/>
+            <div className="flex flex-col items-center justify-center min-h-screen bg-base-300">
+                {component}
+            </div>
             <CompactFooter />
         </div>
     );

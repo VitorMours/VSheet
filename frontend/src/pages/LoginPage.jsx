@@ -1,8 +1,8 @@
 import AuthLayout from "../layout/AuthLayout.jsx";
+import Login from "../components/Login.jsx";
 
+export default function LoginPage(){
 
-export default function Login(){
-
-    return (<AuthLayout/>);
+    return (<AuthLayout component={<Login/>} />);
 
 }

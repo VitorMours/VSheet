@@ -1,7 +1,7 @@
 export default function CompactFooter() {
   return (
-    <footer className="footer items-center justify-center p-4 bg-base-300 text-neutral-content">
-      <aside className="items-center grid-flow-col">
+    <footer className="footer items-center justify-center p-4 bg-base-200 text-neutral-content">
+      <div className="items-center grid-flow-col text-black">
         <p>
           App desenvolvido por{" "}
           <a
@@ -13,7 +13,7 @@ export default function CompactFooter() {
             <strong> </strong>
            © {new Date().getFullYear()} - Todos os direitos reservados
         </p>
-      </aside>
+      </div>
 
     </footer>
   );
