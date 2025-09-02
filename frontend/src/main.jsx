@@ -5,6 +5,13 @@ import LoginPage from "./pages/LoginPage";
 import SigninPage from "./pages/SigninPage";
 import HomePage from "./pages/HomePage";
 
+const initialTheme = () => {
+  const savedTheme = localStorage.getItem('theme');
+  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  return savedTheme || systemTheme;
+};
+
+document.documentElement.setAttribute('data-theme', initialTheme());
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Routes>

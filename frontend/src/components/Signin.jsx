@@ -1,46 +1,66 @@
 import { Fragment, useState } from "react";
+import axios from "axios";
 
 export default function Signin() {
     const [submitted, setSubmitted] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [formData, setFormData] = useState({
-        "first_name": "",
-        "last_name": "",
-        "email": "",
+        "name": "",
+        "surname": "",
+        "credential": "",
         "password": "",
         "check_password": ""
     });
 
     function validateInput(data) {
-        if (!data.first_name.trim() || !data.last_name.trim() || data.password == data.check_password) {
-            return true;
-        }
-        return false;
+    if (!data.name.trim() || !data.surname.trim()) {
+        return false; // inválido
+    }
+    if (data.password !== data.check_password) {
+        return false; // inválido
+    }
+    return true; // válido
+}
+
+const handleLogin = async (e) => {
+    e.preventDefault();
+
+    if (!validateInput(formData)) {
+        setSubmitted(false);
+        setShowModal(true);
+        return;
     }
 
+    setIsLoading(true);
 
-    const handleLogin = async (e) => {
-        e.preventDefault();
-        if (!validateInput(formData)) {
-            setSubmitted(false);
-            setShowModal(true);
-            return;
-        }
-        setIsLoading(true);
-        await new Promise(resolve => setTimeout(resolve, 5000));
+    try {
+        const res = await axios.post(
+            "http://localhost:3000/api/auth/signin",
+            {
+                name: formData.name,
+                surname: formData.surname,
+                credential: formData.credential,
+                password: formData.password,
+            }
+        );
+
+
         setSubmitted(true);
-        console.log(formData);
         setFormData({
-            "first_name": "",
-            "last_name": "",
-            "email": "",
-            "password": "",
-            "check_password": ""
+            name: "",
+            surname: "",
+            credential: "",
+            password: "",
+            check_password: "",
         });
-
-        setIsLoading(false);
-    };
+    } catch (err) {
+        console.error("Login error:", err);
+        setShowModal(true);
+    } finally {
+        setTimeout(() => {setIsLoading(false)},3000); // Redirecionar à tela de login
+    }
+};
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -87,9 +107,9 @@ export default function Signin() {
                                     <span className="label-text py-1">First Name</span>
                                 </label>
                                 <input
-                                    name="first_name"
+                                    name="name"
                                     onChange={handleInputChange}
-                                    value={formData.first_name}
+                                    value={formData.name}
                                     type="text"
                                     placeholder="John"
                                     className={inputClasses}
@@ -101,9 +121,9 @@ export default function Signin() {
                                     <span className="label-text py-1">Last Name</span>
                                 </label>
                                 <input
-                                    name="last_name"
+                                    name="surname"
                                     onChange={handleInputChange}
-                                    value={formData.last_name}
+                                    value={formData.surname}
                                     type="text"
                                     placeholder="Doe"
                                     className={inputClasses}
@@ -113,14 +133,14 @@ export default function Signin() {
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text py-1">Email</span>
+                                <span className="label-text py-1">credential</span>
                             </label>
                             <input
-                                name="email"
+                                name="credential"
                                 onChange={handleInputChange}
-                                value={formData.email}
-                                type="email"
-                                placeholder="your.email@email.com"
+                                value={formData.credential}
+                                type="credential"
+                                placeholder="your.credential@credential.com"
                                 className={inputClasses}
                                 required
                             />
